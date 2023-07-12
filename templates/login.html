@@ -1,0 +1,40 @@
+{% extends "barraNav.html" %}
+{%load static%}
+
+{% block contenido %}
+<section>
+<div class="row m-1 p-6" style=" border-radius: 10px">
+<main class="form-signin">
+    <form action="{% url 'LOG' %}" method="post">
+    {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal" style="color: white;">🅸🅽🅸🅲🅸🅰🆁 🆂🅴🆂🅸🅾🅽</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Usuario" id="usuario" name="txtUser" required>
+            <label for="usuario">Usuario</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="contraseña" placeholder="Password" name="txtPass" required>
+            <label for="contraseña">Contraseña</label>
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me "> Recordar
+            </label>
+        </div>
+        <input type="submit" class="w-100 btn btn-lg" style="margin-top: 10px;
+        height: 100%;
+        background-color: #ead31d94" type="submit" value="🅸🅽🅸🅲🅸🅰🆁 🆂🅴🆂🅸🅾🅽">
+
+    </form>
+</main>
+<div>
+</section>
+
+        
+        <script src="{% static 'js/script.js' %}"></script>
+        {% endblock contenido %}
+
+
+
+   

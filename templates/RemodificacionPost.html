@@ -1,0 +1,89 @@
+{% extends "barraNav.html" %}
+{% load static %}
+
+{% block contenido %}
+
+                    <div class="container-fluid containerModificadorPost">
+                        <form action="{% url 'MDIF' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <h1 class="h2-fondo" style="background-color: initial;">🆁🅴🅳🅸🆃🅰🆁 🅿🅾🆂🆃</h1>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="nombre" style="border: initial; color: white;">Nombre Del Trabajo: </label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cbxMecanico" style="border: initial; color: white;">Mecanico a Elegir: </label>
+                                        <select class="form-select" name="cbxMecanico" id="cbxMecanico" required="">
+                                            {% for item in mecanicos %}
+                                                <option value="{{item.nombre}}">{{item.nombre}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="precio" style="border: initial; color: white;">Valor del Trabajo: </label>
+                                        <input type="text" class="form-control" id="precio" placeholder="『$』『$』『$』『$』『$』" name="precio" required="">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="cantidad " style="border: initial; color: white;">Cantidad de etapas Trabajadas: </label>
+                                        <input type="text" class="form-control" id="cantidad" placeholder="Cantidad" name="cantidad" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="categoria" style="border: initial; color: white;">Tipo de Trabajo: </label>
+                                        <select class="form-select" name="cbxCategoria" id="cbxCategoria" required="">
+                                            {% for item in categorias %}
+                                                <option value="{{item.nombre}}">{{item.nombre}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="foto" style="border: initial; color: white;">Imagen de Trabajo </label>
+                                        <input type="file" class="form-control" id="foto" name="foto">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3 mt-3">
+                                        <label for="descripcion" style="border: initial; color: white;">Descripcion: </label>
+                                        <textarea class="form-control" rows="5" id="descripcion" name="descripcion" required=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 centrar">
+                                    <input type="submit" class="w-100 btn btn-lg" type="submit" value="🅶🅴🅽🅴🆁🅰🆁 🅻🅾🆂 🅲🅰🅼🅱🅸🅾🆂" style="margin-top: 10px; height: 100%; background-color: #ead31d94;">
+                                </div>
+                            </div>
+                            <br>
+                            <a class="nav-link" href="{% url 'MDIF' %}" style="text-decoration: none;color: #ffffff8c; text-align: center;"> Volver a Postear!</a>
+                        </form>
+                       
+                    </div>
+
+{% endblock contenido %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

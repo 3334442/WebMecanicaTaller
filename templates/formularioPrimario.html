@@ -1,0 +1,59 @@
+{% extends "barraNav.html" %}
+{% load static %}
+
+{% block contenido %}
+<div class="container container-0 rounded">
+  <br>
+  <h1 class="h1-fondo" style="color: white;">🅲🅾🅼🆄🅽🅸🅲🅰🆃🅴 🅲🅾🅽 🅽🅾🆂🅾🆃🆁🅾🆂</h1>
+  <div class="row">
+    <div class="col-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="container mt-4">
+            <form action="">
+                <div class="mb-3 centrar">
+                  <label for="Correo" style="color: white;">🅲🅾🆁🆁🅴🅾 🅳🅴 🅲🅾🅽🆃🅰🅲🆃🅾:</label>
+                  <input type="Correo" class="form-control" id="Correo" placeholder="Correo" name="Correo">
+                </div>
+                <div class="mb-3 centrar">
+                  <label for="Nombre" style="color: white;">🅽🅾🅼🅱🆁🅴 🆄🆂🆄🅰🆁🅸🅾</label>
+                  <input type="Nombre" class="form-control" id="Nombre" placeholder="Nombre" name="Nombre">
+                </div>
+                <div class="mb-3 centrar">
+                  <label for="Telefono" style="color: white;">🅽🆄🅼🅴🆁🅾 🆃🅴🅻🅴🅵🅾🅽🅸🅲🅾</label>
+                  <input type="Telefono" class="form-control" id="Telefono" placeholder="Telefono" name="Telefono">
+                </div>
+                <div class="mb-3 centrar">
+                  <label for="fecha_nacimiento" style="color: white;">🅵🅴🅲🅷🅰 🅳🅴 🅽🅰🅲🅸🅼🅸🅴🅽🆃🅾:</label>
+                  <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                  <button class="col-12 btn boton-Enviar" style="background-color: #ead31d94;" onclick="validarEdad()">𝑰𝒅𝒆𝒏𝒕𝒊𝒇𝒊𝒄𝒂𝒅𝒐𝒓 𝒅𝒆 𝑬𝒅𝒂𝒅</button>
+                </div>
+                <div class="centrar">
+                <div class="container mt-3">
+                  <form action="">
+                    <br>
+                    <br>
+                    <div class="mb-3 mt-3">
+                      <label for="Comentario" style="color: white;">🆀🆄🅴 🆂🅾🅻🅸🅲🅸🆃🅰</label>
+                      <textarea class="form-control" rows="8" id="Comentario" name="text"></textarea>
+                      <br>                 
+                    <button class=" btn boton-Enviar" style="background-color: #ead31d94;" onclick="mensaje()"> 𝑬𝒏𝒗𝒊𝒂𝒓</button>
+                    <br>
+                    <br>
+                    <h5 style="color: white;">Si quieres una copia de tu solicitud o registro, haz click en imprimir respaldo </h5> 
+                    <button class=" btn" style="background-color: #ead31d94;" onclick="imprimir()"> 𝑰𝒎𝒑𝒓𝒊𝒎𝒊𝒓 𝒓𝒆𝒔𝒑𝒂𝒍𝒅𝒐</button>
+                    </div>
+                  </form>
+                </div>
+                <br>
+                <h6 style="color: white;">Recuerda Donde Ubicarnos!! </h6> 
+            </form>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d740.1741365070886!2d-70.57808107269156!3d-33.5983223201837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d7037854df81%3A0x893f58a1479b8f82!2sDuoc%20UC%3A%20Sede%20Puente%20Alto!5e0!3m2!1ses!2scl!4v1685108977799!5m2!1ses!2scl" width="400" height="450" style="border:0; width: 100%; height: 290px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div>
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{% static 'img/piston1.png' %}"  sizes="16x16">
+        <title>🆁🅰🆈🅾 🅼🅰🅺🆆🅴🅴🅽&reg;</title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/materialBootstrap/bootstrap.min.css' %}">
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+            {% block css %}
+
+            {% endblock css %}
+    </head>
+    <body id="bg" style="background-image: url('{% static 'img/body.jpg' %}')";>
+        <header>
+            <nav id="nav-1" class="navbar navbar-expand-sm navbar-dark" style="background-color: brown" >
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'IND' %}">
+                        <h3>🆁🅰🆈🅾 🅼🅰🅺🆆🅴🅴🅽&reg;</h3>
+                        {% if user.is_authenticated %}
+
+                            <a class="nav-link" href="#" style="text-decoration: none;color: #ffffff8c;">🆃🅴 🅳🅰🅼🅾🆂 🅻🅰 🅱🅸🅴🅽🆅🅴🅽🅸🅳🅰</a>
+                            <a class="nav-link" href="{% url 'MDIF' %}" style="text-decoration: none;color: #ffffff8c; text-align: center;"> >{{user.username}}< <p>Tu Area de Trabajo</p></a>
+                    {% else %}
+                    {% endif %}
+                    
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'IND' %}">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'GAL' %}">Galeria</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'REG' %}">Registrate</a>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url '1FORM' %}">Contacto</a>
+                            </li>
+                        </ul>
+                        <ul>
+                </ul>
+                        <div class="p-2">
+                            <a href="#"><button style=" border-radius: 1000.1000rem;"><img src="{% static 'img/comuni.png' %}" alt="" style="height: 35px;"><p>-Nosotros-</p></button></a>
+                            
+                        </div>
+                        <div class="p-2">
+                            <a href="#"><button style=" border-radius: 1000.1000rem;"><img src="{% static 'img/fold.png' %}" alt="" style="height: 35px;"><p>-Help-</p></button></a>
+                            
+                        </div>
+                        <div class="d-flex">
+                            <div class="p-2">
+                                <a href="{% url 'CAR' %}"><button style=" border-radius: 1000.1000rem;"><img src="{% static 'img/compras1.png' %}" alt="" style="height: 35px;"><p>Carrito-</p></button></a>
+                                
+                            </div>
+                            {% if user.is_authenticated %}
+                                <div class="p-2">
+                                    <a href="{% url 'CERRAR' %}"><button style=" border-radius: 1000.1000rem;"><img src="{% static 'img/salida.png' %}" alt="" style="height: 35px;"><p>-Salir Sesion-</p></button></a>
+                                </div>
+                            {% else %}
+                                <div class="p-2">
+                                    <a href="{% url 'LOG' %}"><button style=" border-radius: 1000.1000rem;"><img src="{% static 'img/login.png' %}" alt="" style="height: 35px;"><p>-LogIn-</p></button></a>                                   
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -80%); z-index: 4;">
+                <div class="collapse" id="loginCollapse">
+                    <div class="container collapse-form">
+                        <div class="card">
+                            <div class="card-body" style="padding: 0px 20px 20px 20px; width: 600px;">
+                                <form action="{% url 'LOG' %}" method="post">
+                                    {% csrf_token %}
+                                    <h1 class="h3 mb-3 fw-normal">🅸🅽🅸🅲🅸🅰🆁 🆂🅴🆂🅸🅾🅽</h1>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" placeholder="User" id="usuario" name="txtUser" required>
+                                        <label for="usuario">Usuario</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="contraseña" placeholder="Password" name="txtPass" required>
+                                        <label for="contraseña">Contraseña</label>
+                                    </div>
+                                    <div class="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" value="remember-me"> Recordar
+                                        </label>
+                                    </div>
+                                    <input type="submit" class="w-100 btn btn-lg btn-primary" type="submit" value="Iniciar Sesion">
+                                    <a href="{% url 'REG' %}" style="text-align: center;"><p class="mt-3 mb-3">Registrarse</p></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>    
+        <main>
+            <div class="cortina" id="cortina">
+            </div>
+            <section>
+                {% block contenido %}
+
+                {% endblock contenido %}
+            </section>
+        </main>
+        <footer>
+            <div class="mt-5 p-3 text-white text-center" style="background-color: brown">
+                <p>🆁🅰🆈🅾 🅼🅰🅺🆆🅴🅴🅽&reg;</p>
+                <div class="text-white text-left" style="background-color: brown">
+                    <p>𝑼𝒏 𝒕𝒂𝒍𝒍𝒆𝒓 𝑴𝒆𝒄𝒂𝒏𝒊𝒄𝒐 𝑸𝒖𝒆 𝑺𝒊𝒆𝒎𝒑𝒓𝒆 𝒆𝒔𝒕𝒂𝒓𝒂 𝒂 𝒕𝒖 𝑫𝒊𝒔𝒑𝒐𝒔𝒊𝒄𝒊𝒐𝒏</p>
+                </div>
+            </div>
+        </footer>
+        <script src="{% static 'js/validaciones.js' %}"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+        <script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
+    </body>
+</html>

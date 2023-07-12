@@ -1,0 +1,46 @@
+{% extends "barraNav.html" %}
+{% load static %}
+{% block contenido %}
+    <div class="container-fluid rounded" style="width: 85%; padding: 20px 50px;">
+        <h1 class="fa fa-align-center;  font-size: 60px" aria-hidden="true">🆁🅰🆈🅾 🅼🅰🅺🆆🅴🅴🅽&reg;</h1>   
+        <section>        
+            <main class="form-signin">
+                <form action="{% url 'REG' %}" method="post">
+                {% csrf_token %}
+                    <h1 class="h3 mb-3 fw-normal" style="color: white;">🅲🆁🅴🅰🆁 🅲🆄🅴🅽🆃🅰</h1>           
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Usuario" id="usuario" name="txtUser" required>
+                        <label for="usuario">🅽🅾🅼🅱🆁🅴 🅳🅴🅻 🆄🆂🆄🅰🆁🅸🅾</label>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="txtNombre" required>
+                        <label for="nombre">🅽🅾🅼🅱🆁🅴</label>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Apellido" id="apellido" name="txtApellido" required>
+                        <label for="apellido">🅰🅿🅴🅻🅻🅸🅳🅾</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="contraseña" placeholder="Password" name="txtPass" required>
+                        <label for="contraseña">🅲🅾🅽🆃🆁🅰🆂🅴🅽🅰</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="contraseña2" placeholder="Password" name="txtPass2" required>
+                        <label for="contraseña">🆁🅴🅿🅸🆃🅰 🅲🅾🅽🆃🆁🅰🆂🅴🅽🅰</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Correo" id="correo" name="txtCorreo" required>
+                        <label for="correo">🅲🅾🆁🆁🅴🅾 🅴🅻🅴🅲🆃🆁🅾🅽🅸🅲🅾</label>
+                    </div>
+                    <div class="mb-3 centrar">
+                        <label for="fecha_nacimiento" style="color: white;">🅵🅴🅲🅷🅰 🅳🅴 🅽🅰🅲🅸🅼🅸🅴🅽🆃🅾:</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                        <br>                        
+                        <button class="col-12 btn boton-Enviar" style="background-color: #ead31d94;" onclick="validarEdad()">𝑰𝒅𝒆𝒏𝒕𝒊𝒇𝒊𝒄𝒂𝒅𝒐𝒓 𝒅𝒆 𝑬𝒅𝒂𝒅</button>
+                       <br>
+                       <br>
+                    <input type="submit" class="w-100 btn btn-lg btn-primary" type="submit" style="background: #ead31d94;color: black;" value="𝑹𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓𝒔𝒆">           
+                </form>
+            </main>
+            <div>
+     </section>
+    </div>
+{% endblock contenido %}

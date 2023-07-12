@@ -1,0 +1,49 @@
+{% extends "barraNav.html" %}
+{% load static %}
+
+
+
+{% block contenido %}
+<div class="container container-0 rounded">
+    <h1 class="h1-fondo " style="color: white;" >🅳🅴🆂🅲🆁🅸🅿🅲🅸🅾🅽 🅳🅴🅻 🆃🆁🅰🅱🅰🅹🅾</h1>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card">
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                        <div class="card">
+                            <div class="card">
+                                    <img src="{{trabajo.foto.url}}" alt="" class="d-block"
+                                    style="width:100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 style="text-align: center;">🆅🅰🅻🅾🆁 🅳🅴🅻 🆃🆁🅰🅱🅰🅹🅾 🆁🅴🅰🅻🅸🆉🅰🅳🅾</h3>
+                    <a class="a-precio" style="text-align: center;">
+                        <p>${{trabajo.precio}}</p>
+                    </a>
+                    <div class="centrar">
+                        <button class=" btn" style="background-color: #ead31d94;"  onclick="contar()">🆂🅾🅻🅸🅲🅸🆃🅰🆁 🅴🆂🆃🅰 🆃🆁🅰🅱🅰🅹🅾</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="container-fluid">
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <h2 style="color: white; text-align: center;">🅻🅾 🆀🆄🅴 🆂🅴 🆁🅴🅰🅻🅸🆉🅾</h2>
+                    <p style="color: white;">{{item.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

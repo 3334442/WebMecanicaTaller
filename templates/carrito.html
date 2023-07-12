@@ -1,0 +1,31 @@
+{% extends "barraNav.html" %}
+{% load static %}
+
+{% block contenido %}
+
+        <section  class="container-0 col-12" style="text-align: center;">
+                <table style="color: white; margin-top: 20px; width: 100%; text-align: center; border: solid 2px;" >
+                    <thead>
+                        <th>
+                            id del Trabajo:{{item.idTrabajo}}
+                        </th>
+                        <th>
+                            mecanico del nombre:{{item.mecanico.nombre}}
+                        </th>
+                        <th>
+                            descripcion:{{item.descripcion}}
+                        </th>
+                        <th >
+                            categoria: {{item.categoria}}
+                        </th>
+                        <th >
+                            Precio Servicio: {{item.precio}}
+                        </th>
+                    </thead>
+                    <tbody id="body-tabla">                        
+                    </tbody>
+                </table>
+        </section>
+        <button class="btn col-5" onclick="reset()" style="color: white; background-color: #ead31d94;">Vaciar Carrito</button>
+        <button class="btn col-5" onclick="agregar()" style="color: white; background-color: #ead31d94;">Solicitar El Pedido</button>
+{% endblock contenido %}

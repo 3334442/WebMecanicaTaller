@@ -1,0 +1,138 @@
+{% extends "barraNav.html" %}
+{% load static %}
+
+{% block contenido %}
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-6">
+                <div class="container-fluid containerModificadorPost" >
+                    <div class="row" >
+                        <div class="col-12">
+                            <h1 class="h1-fondo">🅻🅸🆂🆃🅰🅳🅾 🅳🅴 🆃🆁🅰🅱🅰🅹🅾🆂</h1>
+                            <br>
+                            <br>
+                        </div>
+                            {% for item in trabajos %}
+                                <div class="col-12" >
+                                    <br>
+                                    <div class="card p-2" style="border: initial;  background-color: initial;">
+                                        <div class="table-responsive" >
+                                            <table class="table table-responsive" style="border: initial;">
+                                                <thead class=""style="border: initial; background-color: chocolate; border-radius: 10px;">
+                                                    <tr>
+                                                    <th style="border: initial; color: white;">Que Quieres Administrar</th>
+                                                    <th style="border: initial; color: white;">ID</th>
+                                                    <th style="border: initial; color: white;">Valor del Trabajo</th>
+                                                    <th style="border: initial; color: white;">Nombre del Trabajo</th>
+                                                    <th style="border: initial; color: white;">Tipo de Trabajo</th>
+                                                    <th style="border: initial; color: white;">Nombre del Mecanico a Cargo</th>
+                                                    <th style="border: initial; color: white;">Imagen</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody >
+                                                    <tr >
+                                                        <td style="border: initial;">
+                                                            <div class="form-group">
+                                                                <a class="form-control m-2" type="button" href="#" style="background-color: greenyellow; border: initial;"><input class="form-control m-2" type="button" value="🅱🅻🅾🆀🆄🅴🅰🆁" onclick="#" style="background-color: greenyellow;  border: initial;"></a>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <a class="form-control m-2" type="button" href="#" style="background-color: brown; border: initial;"><input class="form-control m-2" type="button" value="🅴🅻🅸🅼🅸🅽🅰🆁" onclick="eliminarTrabajo('{% url 'ELITRA' item.idTrabajo %}')" style="background-color: brown; border: initial;"></a>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <a class="form-control m-2" type="button" href="{% url 'REPO' %}" style="background-color: blueviolet; border: initial;"> <input class="form-control m-2" type="button" value="🅼🅾🅳🅸🅵🅸🅲🅰🆁" onclick="eliminarTrabajo('{% url 'ELITRA' item.idTrabajo %}')" style="background-color: blueviolet; border: initial; "></a>
+                                                                 
+                                                            </div>
+                                                        </td>
+                                                    <td style="border: initial; color: white;">{{item.idTrabajo}}</td>
+                                                    <td style="border: initial; color: white;">{{item.precio}}</td>
+                                                    <td style="border: initial; color: white;">{{item.nombre}}</td>
+                                                    <td style="border: initial; color: white;">{{item.categoria.nombre}}</td>
+                                                    <td style="border: initial; color: white;">{{item.mecanico.nombre}}</td>
+                                                    <td style="width: 300px;"><img src="{{item.foto.url}}" alt="Card image" style="width: 100%; height: 150px;"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="container containerModificadorPost">
+                    <h1 class="h1-fondo">🅿🅾🆂🆃🅴🅰 🆄🅽 🆃🆁🅰🅱🅰🅹🅾</h1>
+                    <form action="{% url 'MDIF' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nombre" style="border: initial; color: white;">Nombre del tipo de trabajo: </label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingrese un Nombre del tipo de trabajo" name="nombre" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cbxMecanico" style="border: initial; color: white;">Selecciona un Mecanico: </label>
+                            <select class="form-select" name="cbxMecanico" id="cbxMecanico"  required="">
+                                {% for item in mecanicos %}
+                                    <option value="{{item.nombre}}">{{item.nombre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio" style="border: initial; color: white;">Valor del Trabajo: </label>
+                            <input type="text" class="form-control" id="precio" placeholder="Precio" name="precio" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cantidad"  style="border: initial; color: white;">Cantidad de Procedimiento: </label>
+                            <input type="text" class="form-control" id="cantidad" placeholder="Cantidad" name="cantidad" required="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto"  style="border: initial; color: white;">Imagen del Trabajo Realizado: </label>
+                            <input type="file" class="form-control" id="foto" name="foto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cbxCategoria" style="border: initial; color: white;">Tipos de Trabajos: </label>
+                            <select class="form-select" name="cbxCategoria" id="cbxCategoria"  required="">
+                                {% for item in categorias %}
+                                    <option value="{{item.nombre}}">{{item.nombre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label for="descripcion" style="border: initial; color: white;">Escriba la Descripcion del Post:</label>
+                            <textarea class="form-control" rows="5" id="Descripcion" name="descripcion" required=""></textarea>
+                        </div>
+                        <div class="centrar">
+                            <input class=" btn boton-Enviar" type="submit" value="🅿🅾🆂🆃🅴🅰🆁 🆃🆁🅰🅱🅰🅹🅾" style="margin-top: 10px; height: 100%; background-color: #ead31d94;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
